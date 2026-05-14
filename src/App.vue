@@ -1,8 +1,5 @@
 <template>
-  <main>
-    11111111111
-    <TheWelcome />
-  </main>
+  <main>작성중 입니다.</main>
 </template>
 <script setup></script>
 <style scoped></style>
