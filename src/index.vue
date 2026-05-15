@@ -1,1 +1,1 @@
-<template>작성중입니다.</template>
+<template>작성중 입니다.</template>
