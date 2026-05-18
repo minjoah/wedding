@@ -1,6 +1,7 @@
 <template>
   <ul>
-    <li><RouterLink to="/wedding">test</RouterLink></li>
+    <li><RouterLink to="/wedding">테스트</RouterLink></li>
+    <li><RouterLink to="/wedding1">초대장</RouterLink></li>
   </ul>
 </template>
 <style>
