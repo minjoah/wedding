@@ -1,11 +1,21 @@
 <template>
-  <div class="container">
+  <div class="main-frame">
+    <div class="contents">오디오</div>
     <div class="contents">
-      <img src="./image/iamge1.png" />
+      메인 사진, 시간장소
+      <img src="./image/iamge1.png" class="image" />
     </div>
-    <div class="contents">2222</div>
-    <div class="contents">333</div>
-    <div class="contents">444</div>
+    <div class="contents">웰컴 문구</div>
+    <div class="contents">신랑신부소개</div>
+    <div class="contents">달력</div>
+    <div class="contents">디데이</div>
+    <div class="contents">이미지 갤러리</div>
+    <div class="contents">결혼식장 장소</div>
+    <div class="contents">오는방법</div>
+    <div class="contents">버스대절 안내</div>
+    <div class="contents">방명록</div>
+    <div class="contents">계좌</div>
+    <div class="contents">공유, 모청주소 복사</div>
   </div>
 </template>
 <script setup>
@@ -25,15 +35,31 @@ onMounted(() => {
 });
 </script>
 <style lang="scss" scoped>
-.container {
+.main-frame {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  background-color: rgb(251, 251, 251);
+  font-family: MaruBuriLight;
   width: 100%;
-  margin: 0 auto;
-  background-color: antiquewhite;
-  text-align: center;
+  // max-width: 390px;
+  max-width: 560px;
 }
+
+@media (max-width: 1400px) {
+  .main-frame {
+    width: 100%;
+  }
+}
+
 .contents {
-  height: 1500px;
   border: 1px solid red;
+  font-family: "Gowun Dodum", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  .image {
+    width: 100%;
+  }
 }
 
 .contents.show {
