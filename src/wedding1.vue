@@ -15,7 +15,7 @@
     <div class="contents">오디오</div>
     <div class="contents">
       메인 사진, 시간장소
-      <img src="./image/iamge1.png" class="image" />
+      <img src="@/image/iamge1.png" class="image" />
     </div>
     <div class="contents">웰컴 문구</div>
     <div class="contents">신랑신부소개</div>
@@ -27,8 +27,14 @@
       디데이
       <dDay />
     </div>
-    <div class="contents">이미지 갤러리</div>
-    <div class="contents">결혼식장 장소</div>
+    <div class="contents">
+      이미지 갤러리
+      <gallery />
+    </div>
+    <div class="contents">
+      결혼식장 장소
+      <location />
+    </div>
     <div class="contents">오는방법</div>
     <div class="contents">버스대절 안내</div>
     <div class="contents">방명록</div>
@@ -40,6 +46,8 @@
 import { onMounted, ref } from "vue";
 import calendar from "@/component/calendar.vue";
 import dDay from "@/component/dDay.vue";
+import gallery from "@/component/gallery.vue";
+import location from "@/component/location.vue";
 
 const fontOpt = ref("normal");
 onMounted(() => {
