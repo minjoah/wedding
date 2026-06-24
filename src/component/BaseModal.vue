@@ -72,8 +72,12 @@ const close = () => {
 }
 
 .full {
-  min-width: 560px;
-  height: 100%;
+  width: calc(100vw - 32px);
+  max-width: 560px;
+  height: calc(100vh - 32px);
+
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-header {
@@ -86,7 +90,9 @@ const close = () => {
 }
 
 .modal-body {
-  padding: 20px;
+  flex: 1;
+  padding: 0;
+  overflow: hidden;
 }
 
 .modal-footer {

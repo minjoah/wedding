@@ -124,12 +124,16 @@ const currentIndex = ref(0);
 const prev = () => {
   if (currentIndex.value > 0) {
     currentIndex.value--;
+  } else {
+    currentIndex.value = Object.values(modules).length - 1;
   }
 };
 
 const next = () => {
   if (currentIndex.value < Object.values(modules).length - 1) {
     currentIndex.value++;
+  } else {
+    currentIndex.value = 0;
   }
 };
 
@@ -230,45 +234,56 @@ watch([imageList, gridCols], async () => {
   }
 }
 
-.image-wrapper {
+.image-viewer {
+  position: relative;
   width: 100%;
   height: 100%;
+}
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  overflow: hidden;
+.viewer-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .viewer-image {
   max-width: 100%;
   max-height: 100%;
+
+  width: auto;
+  height: auto;
+
   object-fit: contain;
 }
 .nav {
   position: absolute;
   top: 50%;
-
   transform: translateY(-50%);
+
+  z-index: 10;
 
   width: 48px;
   height: 48px;
 
   border: none;
-  background: rgba(0, 0, 0, 0.4);
-  color: #fff;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
 
+  font-size: 28px;
   cursor: pointer;
-  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .prev {
-  left: 20px;
+  left: 12px;
 }
 
 .next {
-  right: 20px;
+  right: 12px;
 }
 
 .pagination {

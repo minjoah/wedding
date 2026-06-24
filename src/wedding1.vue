@@ -6,6 +6,11 @@
       'main-font-large': fontOpt === 'big',
     }"
   >
+    <div>
+      <a href="https://minjoah.github.io/wedding" target="_blank"
+        >사이트 가기
+      </a>
+    </div>
     <div class="contents">
       <button @click="fontOpt = 'big'">큰글씨</button>
       <button @click="fontOpt = 'normal'">보통글씨</button>
@@ -35,11 +40,19 @@
       결혼식장 장소
       <location />
     </div>
-    <div class="contents">오는방법</div>
+    <div class="contents">
+      오는방법
+      <directions />
+    </div>
     <div class="contents">버스대절 안내</div>
-    <div class="contents">방명록</div>
-    <div class="contents">계좌</div>
-    <div class="contents">공유, 모청주소 복사</div>
+    <div class="contents">방명록 ( 필요없을듯 )</div>
+    <div class="contents margin">
+      <money />
+    </div>
+    <div class="contents">
+      공유, 모청주소 복사
+      <share />
+    </div>
   </div>
 </template>
 <script setup>
@@ -48,6 +61,9 @@ import calendar from "@/component/calendar.vue";
 import dDay from "@/component/dDay.vue";
 import gallery from "@/component/gallery.vue";
 import location from "@/component/location.vue";
+import directions from "@/component/directions.vue";
+import money from "@/component/money.vue";
+import share from "@/component/share.vue";
 
 const fontOpt = ref("normal");
 onMounted(() => {
@@ -65,14 +81,21 @@ onMounted(() => {
 </script>
 <style lang="scss" scoped>
 .main-frame {
+  width: 100%;
+
+  margin: 0 auto;
+
+  background: #fff;
+
   display: flex;
   flex-direction: column;
-  color: black;
-  background-color: rgb(251, 251, 251);
-  font-family: MaruBuriLight;
+}
+
+.image {
+  display: block;
   width: 100%;
-  // max-width: 390px;
-  max-width: 560px;
+  max-width: 100%;
+  height: auto;
 }
 
 .main-font-normal {
@@ -90,6 +113,9 @@ onMounted(() => {
 }
 
 .contents {
+  width: 100%;
+  overflow: hidden;
+
   border: 1px solid red;
   font-family: "Gowun Dodum", sans-serif;
   font-weight: 400;
@@ -102,7 +128,9 @@ onMounted(() => {
 .contents.show {
   animation: fadein 3s;
 }
-
+.margin {
+  padding: 0px 20px;
+}
 @keyframes fadein {
   from {
     opacity: 0;

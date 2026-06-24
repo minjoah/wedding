@@ -1,0 +1,260 @@
+<template>
+  마음 전하실 곳
+  <br />
+  참석이 어려우신 분들을 위해 기재했습니다 <br />
+  너그러운 마음으로 양해 부탁드립니다
+
+  <div class="account-accordion">
+    <Accordion title="신랑측에게" class="accordion">
+      <div
+        v-for="account in accounts"
+        :key="account.accountNo"
+        class="account-card"
+      >
+        <div class="account-card__header">
+          <span>{{ account.role }}</span>
+          <span>{{ account.name }}</span>
+        </div>
+
+        <div class="account-card__body">
+          <div class="account-card__info">
+            <div class="account-card__bank">
+              {{ account.bank }}
+            </div>
+
+            <div class="account-card__number">
+              {{ account.accountNo }}
+            </div>
+          </div>
+
+          <div class="account-card__actions">
+            <button class="icon-btn">
+              <img
+                src="@/image/icon/copy.svg"
+                class="icon"
+                @click="copy(account.accountNo)"
+              />
+              복사
+            </button>
+            <button class="icon-btn" v-if="account.isKakaoPay">
+              <img
+                src="@/image/icon/kakaopay.png"
+                class="icon_kakao"
+                @click="() => goLink(account.kakaoPayLink)"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </Accordion>
+    <Accordion title="신부측에게" class="accordion">
+      <div
+        v-for="account in accounts1"
+        :key="account.accountNo"
+        class="account-card"
+      >
+        <div class="account-card__header">
+          <span>{{ account.role }}</span>
+          <span>{{ account.name }}</span>
+        </div>
+
+        <div class="account-card__body">
+          <div class="account-card__info">
+            <div class="account-card__bank">
+              {{ account.bank }}
+            </div>
+
+            <div class="account-card__number">
+              {{ account.accountNo }}
+            </div>
+          </div>
+
+          <div class="account-card__actions">
+            <button class="icon-btn">
+              <img
+                src="@/image/icon/copy.svg"
+                class="icon"
+                @click="copy(account.accountNo)"
+              />
+              복사
+            </button>
+            <button class="icon-btn" v-if="account.isKakaoPay">
+              <img
+                src="@/image/icon/kakaopay.png"
+                class="icon_kakao"
+                @click="() => goLink(account.kakaoPayLink)"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </Accordion>
+  </div>
+
+  <Toast :message="toastMessage" :duration="2000" />
+</template>
+<script setup>
+import { ref, watch } from "vue";
+import Accordion from "@/component/Accordion.vue";
+import Toast from "@/component/Toast.vue";
+const accounts = [
+  {
+    role: "신랑",
+    name: "이민호",
+    bank: "토크은행",
+    accountNo: "123-456-789012",
+    isKakaoPay: true,
+    kakaoPayLink: "https://qr.kakaopay.com/Ej7lXpjEN",
+  },
+  {
+    role: "신랑 아버지",
+    name: "이정빈",
+    bank: "토크은행",
+    accountNo: "123-456-789012",
+  },
+  {
+    role: "신랑 어머니",
+    name: "이정빈",
+    bank: "토크은행",
+    accountNo: "123-456-789012",
+  },
+];
+
+const accounts1 = [
+  {
+    role: "신부",
+    name: "이민호",
+    bank: "토크은행",
+    accountNo: "123-456-789012",
+    isKakaoPay: true,
+  },
+  {
+    role: "신부 아버지",
+    name: "이정빈",
+    bank: "토크은행",
+    accountNo: "123-456-789012",
+  },
+  {
+    role: "신부 어머니",
+    name: "이정빈",
+    bank: "토크은행",
+    accountNo: "123-456-789012",
+  },
+];
+
+const goLink = (link) => {
+  if (!link) return;
+  if (!isMobile()) {
+    alert("모바일만 지원하는 기능입니다.");
+    return;
+  }
+  window.open(link);
+};
+
+const isMobile = () => {
+  // 클라이언트 측에서만 navigator 객체를 사용
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent,
+  );
+};
+
+const toastMessage = ref("");
+const copy = (account) => {
+  navigator.clipboard
+    .writeText(account.replaceAll("-", ""))
+    .then(() => {
+      console.log("Text copied to clipboard...");
+      toastMessage.value = "";
+      requestAnimationFrame(() => {
+        toastMessage.value = "계좌번호가 복사되었습니다.";
+      });
+    })
+    .catch((err) => {
+      console.log("Something went wrong", err);
+    });
+};
+</script>
+<style lang="scss" scoped>
+.account-card {
+  margin: 0;
+
+  border-radius: 16px;
+  padding: 24px;
+
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.account-card:first-child {
+  margin-top: 0;
+}
+
+.account-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+
+  line-height: 1.4;
+}
+
+.account-card__body {
+  background: #f5f5f5;
+  border-radius: 10px;
+
+  padding: 14px 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.account-card__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.account-card__bank {
+  color: #9a9a9a;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.account-card__number {
+  line-height: 1;
+}
+
+.account-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.icon_kakao {
+  width: 100% !important;
+  height: 24px !important;
+}
+
+.accordion {
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+</style>
