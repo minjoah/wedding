@@ -8,9 +8,6 @@
 import navBar from "@/navBar.vue";
 </script>
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Song+Myung&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap");
-
 * {
   box-sizing: border-box;
 }
@@ -29,12 +26,12 @@ body,
 }
 
 body {
-  background-color: #f5f5f5;
+  background-color: #d6d6d6;
 }
 
 #wrap {
   width: 100%;
-  max-width: 560px;
+  max-width: 480px;
 
   margin: 0 auto;
   text-align: center;

@@ -1,8 +1,11 @@
 <template>
-  마음 전하실 곳
-  <br />
-  참석이 어려우신 분들을 위해 기재했습니다 <br />
-  너그러운 마음으로 양해 부탁드립니다
+  <div class="text">
+    <b>마음 전하실 곳</b>
+    <br />
+    <br />
+    참석이 어려우신 분들을 위해 기재했습니다 <br />
+    너그러운 마음으로 양해 부탁드립니다
+  </div>
 
   <div class="account-accordion">
     <Accordion title="신랑측에게" class="accordion">
@@ -28,12 +31,8 @@
           </div>
 
           <div class="account-card__actions">
-            <button class="icon-btn">
-              <img
-                src="@/image/icon/copy.svg"
-                class="icon"
-                @click="copy(account.accountNo)"
-              />
+            <button class="icon-btn" @click="copy(account.accountNo)">
+              <img src="@/image/icon/copy.svg" class="icon" />
               복사
             </button>
             <button class="icon-btn" v-if="account.isKakaoPay">
@@ -70,12 +69,8 @@
           </div>
 
           <div class="account-card__actions">
-            <button class="icon-btn">
-              <img
-                src="@/image/icon/copy.svg"
-                class="icon"
-                @click="copy(account.accountNo)"
-              />
+            <button class="icon-btn" @click="copy(account.accountNo)">
+              <img src="@/image/icon/copy.svg" class="icon" />
               복사
             </button>
             <button class="icon-btn" v-if="account.isKakaoPay">
@@ -175,6 +170,12 @@ const copy = (account) => {
 };
 </script>
 <style lang="scss" scoped>
+.text {
+  line-height: 1.8;
+}
+.account-accordion {
+  margin: 50px 0px;
+}
 .account-card {
   margin: 0;
 
@@ -229,7 +230,7 @@ const copy = (account) => {
 .account-card__actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 5px;
 }
 
 .icon-btn {

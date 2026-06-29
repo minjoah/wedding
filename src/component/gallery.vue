@@ -1,8 +1,11 @@
 <template>
   <div class="gallery">
-    <button @click="gridCols = 1">1</button>
-    <button @click="gridCols = 2">2</button>
-    <button @click="gridCols = 3">3</button>
+    <Title title="GALLERY">
+      <br />
+      <div style="color: #1b1a1a">
+        사진을 클릭하시면 전체화면 보기가 가능합니다.
+      </div>
+    </Title>
     <div
       ref="containerRef"
       class="container"
@@ -70,6 +73,7 @@
 
 <script setup>
 import { ref, computed, onMounted, watch, nextTick } from "vue";
+import Title from "@/component/Title.vue";
 import BaseModal from "@/component/BaseModal.vue";
 const gridCols = ref(3);
 // 더보기 버튼관련
@@ -116,7 +120,8 @@ const chunkArray = (arr, n) => {
 const checkHeight = () => {
   if (!containerRef.value) return;
 
-  showMoreButton.value = containerRef.value.scrollHeight > 800;
+  console.log(containerRef.value.scrollHeight);
+  showMoreButton.value = containerRef.value.scrollHeight > 700;
 };
 
 //modal
@@ -189,6 +194,7 @@ watch([imageList, gridCols], async () => {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  cursor: pointer;
 }
 
 .images img {

@@ -1,5 +1,16 @@
 <template>
   <div class="contents">
+    <div>
+      <Title title="WEDDING DAY">
+        <div class="title_sub">
+          <span class="ko">2026년 10월 31일 토요일 | 오후 3시 </span>
+          <br />
+          <span class="en">Saturday, October 31, 2026 | PM 03:00 </span>
+        </div>
+      </Title>
+
+      <Line />
+    </div>
     <table class="calendar">
       <tr>
         <th class="holidays">일</th>
@@ -25,9 +36,13 @@
         </td>
       </tr>
     </table>
+
+    <Line />
   </div>
 </template>
 <script setup>
+import Title from "@/component/Title.vue";
+import Line from "@/component/Line.vue";
 import { ref, onMounted } from "vue";
 const calendarArr = ref([]);
 const chunkArray = (arr, n) => {
@@ -65,12 +80,22 @@ onMounted(() => {
 });
 </script>
 <style lang="scss">
+.title_sub {
+  margin-top: 30px;
+  line-height: 1.8;
+  .ko {
+    color: #070707;
+  }
+  .en {
+    color: #6c6c6c;
+  }
+}
 .contents {
   align-items: center;
 }
 
 .calendar {
-  width: 70%;
+  width: 100%;
   margin: auto;
   text-align: center;
   tr {

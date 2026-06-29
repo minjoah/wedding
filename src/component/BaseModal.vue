@@ -73,7 +73,7 @@ const close = () => {
 
 .full {
   width: calc(100vw - 32px);
-  max-width: 560px;
+  max-width: 480px;
   height: calc(100vh - 32px);
 
   display: flex;

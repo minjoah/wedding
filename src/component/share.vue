@@ -1,9 +1,13 @@
 <template>
   <div @click="shareMessage()">카카오톡으로 청첩장 전하기</div>
-  <div>청첩장 주소 복사하기</div>
+  <div @click="copy()">청첩장 주소 복사하기</div>
+
+  <Toast :message="toastMessage" :duration="2000" />
 </template>
 
 <script setup>
+import { ref, watch } from "vue";
+import Toast from "@/component/Toast.vue";
 const shareMessage = () => {
   Kakao.Share.sendDefault({
     objectType: "feed",
@@ -39,6 +43,22 @@ const shareMessage = () => {
       },
     ],
   });
+};
+
+const toastMessage = ref("");
+const copy = () => {
+  navigator.clipboard
+    .writeText("https://minjoah.github.io/wedding/")
+    .then(() => {
+      console.log("Text copied to clipboard...");
+      toastMessage.value = "";
+      requestAnimationFrame(() => {
+        toastMessage.value = "복사되었습니다.";
+      });
+    })
+    .catch((err) => {
+      console.log("Something went wrong", err);
+    });
 };
 </script>
 <style lang="scss" scoped></style>

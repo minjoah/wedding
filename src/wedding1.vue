@@ -2,8 +2,8 @@
   <div
     class="main-frame"
     :class="{
-      'main-font-normal': fontOpt === 'normal',
-      'main-font-large': fontOpt === 'big',
+      'font-normal': fontOpt === 'normal',
+      'font-large': fontOpt === 'big',
     }"
   >
     <div>
@@ -24,24 +24,21 @@
     </div>
     <div class="contents">웰컴 문구</div>
     <div class="contents">신랑신부소개</div>
-    <div class="contents">
-      달력
+    <div class="contents margin backColor_1">
       <calendar />
     </div>
-    <div class="contents">
-      디데이
+    <div class="contents backColor_1" style="padding-bottom: 120px">
+      <!-- 디데이 -->
       <dDay />
     </div>
     <div class="contents">
-      이미지 갤러리
       <gallery />
     </div>
-    <div class="contents">
-      결혼식장 장소
+    <div class="contents backColor_1">
+      <Title title="LOCATION" />
       <location />
     </div>
-    <div class="contents">
-      오는방법
+    <div class="contents backColor_1 margin">
       <directions />
     </div>
     <div class="contents">버스대절 안내</div>
@@ -64,6 +61,7 @@ import location from "@/component/location.vue";
 import directions from "@/component/directions.vue";
 import money from "@/component/money.vue";
 import share from "@/component/share.vue";
+import Title from "@/component/Title.vue";
 
 const fontOpt = ref("normal");
 onMounted(() => {
@@ -80,6 +78,8 @@ onMounted(() => {
 });
 </script>
 <style lang="scss" scoped>
+@use "@/common.scss";
+
 .main-frame {
   width: 100%;
 
@@ -98,14 +98,6 @@ onMounted(() => {
   height: auto;
 }
 
-.main-font-normal {
-  font-size: medium;
-}
-
-.main-font-large {
-  font-size: x-large;
-}
-
 @media (max-width: 1400px) {
   .main-frame {
     width: 100%;
@@ -116,20 +108,28 @@ onMounted(() => {
   width: 100%;
   overflow: hidden;
 
-  border: 1px solid red;
-  font-family: "Gowun Dodum", sans-serif;
+  // border: 1px solid red;
+  font-family: "IBM Plex Sans KR", sans-serif;
   font-weight: 400;
   font-style: normal;
+  color: rgb(48, 48, 48);
   .image {
     width: 100%;
   }
+}
+
+.backColor_1 {
+  background-color: rgb(244, 243, 243);
+}
+.backColor_2 {
+  background-color: rgb(234, 232, 232);
 }
 
 .contents.show {
   animation: fadein 3s;
 }
 .margin {
-  padding: 0px 20px;
+  padding: 0px 10%;
 }
 @keyframes fadein {
   from {

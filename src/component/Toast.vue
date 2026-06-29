@@ -12,7 +12,7 @@ import { ref, watch } from "vue";
 const props = defineProps({
   message: {
     type: String,
-    default: "",
+    default: "복사되었습니다",
   },
   duration: {
     type: Number,
