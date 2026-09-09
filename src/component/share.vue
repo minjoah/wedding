@@ -69,7 +69,7 @@ const shareMessage = () => {
 const toastMessage = ref("");
 const copy = () => {
   navigator.clipboard
-    .writeText("https://minjoah.github.io/wedding/")
+    .writeText("https://minjoah.github.io/wedding")
     .then(() => {
       console.log("Text copied to clipboard...");
       toastMessage.value = "";
