@@ -66,7 +66,7 @@
     <div class="contents backColor_3 margin">
       <directions />
     </div>
-    <!-- <div class="contents">버스대절 안내</div> -->
+    <div class="contents backColor_default margin"><bus/></div>
     <div class="contents margin backColor_default">
       <money />
     </div>
@@ -99,6 +99,7 @@ import impactDDay from "@/component/impactDDay.vue";
 import mainImage from "@/component/mainImage.vue";
 import welcome from "@/component/welcome.vue";
 import bgm from "@/component/bgm.vue";
+import bus from "@/component/bus.vue"
 import commingSoon from "@/component/commingSoon.vue";
 
 
