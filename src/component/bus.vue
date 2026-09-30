@@ -19,7 +19,7 @@
         </div>
     </div>
         <Line/>
-    <BaseModal v-model="showModal">
+    <BaseModal v-model="showModal" size="full">
         <div class="image-viewer">
             <img
                 src="/busInfo.jpg"
