@@ -1,89 +1,91 @@
 <template>
-  <div class="text">
-    <b>마음 전하실 곳</b>
-    <br />
-    <br />
-    참석이 어려우신 분들을 위해 기재했습니다 <br />
-    너그러운 마음으로 양해 부탁드립니다
-  </div>
+  <div class="money">
+    <div class="text">
+      <b>마음 전하실 곳</b>
+      <br />
+      <br />
+      참석이 어려우신 분들을 위해 기재했습니다 <br />
+      너그러운 마음으로 양해 부탁드립니다
+    </div>
 
-  <div class="account-accordion">
-    <Accordion title="신랑측에게" class="accordion">
-      <div
-        v-for="account in accounts"
-        :key="account.accountNo"
-        class="account-card"
-      >
-        <div class="account-card__header">
-          <span>{{ account.role }}</span>
-          <span>{{ account.name }}</span>
-        </div>
-
-        <div class="account-card__body">
-          <div class="account-card__info">
-            <div class="account-card__bank">
-              {{ account.bank }}
-            </div>
-
-            <div class="account-card__number">
-              {{ account.accountNo }}
-            </div>
+    <div class="account-accordion">
+      <Accordion title="신랑측에게" class="accordion">
+        <div
+          v-for="account in accounts"
+          :key="account.accountNo"
+          class="account-card"
+        >
+          <div class="account-card__header">
+            <span>{{ account.role }}</span>
+            <span>{{ account.name }}</span>
           </div>
 
-          <div class="account-card__actions">
-             <button class="icon-btn" v-if="account.isKakaoPay">
-              <img
-                src="@/image/icon/kakaopay.png"
-                class="icon_kakao"
-                @click="() => goLink(account.kakaoPayLink)"
-              />
-            </button>
-            <button class="icon-btn" @click="copy(account.accountNo)">
-              <img src="@/image/icon/copy.svg" class="icon" />
-            </button>
-           
-          </div>
-        </div>
-      </div>
-    </Accordion>
-    <Accordion title="신부측에게" class="accordion">
-      <div
-        v-for="account in accounts1"
-        :key="account.accountNo"
-        class="account-card"
-      >
-        <div class="account-card__header">
-          <span>{{ account.role }}</span>
-          <span>{{ account.name }}</span>
-        </div>
+          <div class="account-card__body">
+            <div class="account-card__info">
+              <div class="account-card__bank">
+                {{ account.bank }}
+              </div>
 
-        <div class="account-card__body">
-          <div class="account-card__info">
-            <div class="account-card__bank">
-              {{ account.bank }}
+              <div class="account-card__number">
+                {{ account.accountNo }}
+              </div>
             </div>
 
-            <div class="account-card__number">
-              {{ account.accountNo }}
+            <div class="account-card__actions">
+              <button class="icon-btn" v-if="account.isKakaoPay">
+                <img
+                  src="@/image/icon/kakaopay.png"
+                  class="icon_kakao"
+                  @click="() => goLink(account.kakaoPayLink)"
+                />
+              </button>
+              <button class="icon-btn" @click="copy(account.accountNo)">
+                <img src="@/image/icon/copy.svg" class="icon" />
+              </button>
+            
             </div>
           </div>
+        </div>
+      </Accordion>
+      <Accordion title="신부측에게" class="accordion">
+        <div
+          v-for="account in accounts1"
+          :key="account.accountNo"
+          class="account-card"
+        >
+          <div class="account-card__header">
+            <span>{{ account.role }}</span>
+            <span>{{ account.name }}</span>
+          </div>
 
-          <div class="account-card__actions">
-            <button class="icon-btn" v-if="account.isKakaoPay">
-              <img
-                src="@/image/icon/kakaopay.png"
-                class="icon_kakao"
-                @click="() => goLink(account.kakaoPayLink)"
-              />
-            </button>
-            <button class="icon-btn" @click="copy(account.accountNo)">
-              <img src="@/image/icon/copy.svg" class="icon" />
-            </button>
-          
+          <div class="account-card__body">
+            <div class="account-card__info">
+              <div class="account-card__bank">
+                {{ account.bank }}
+              </div>
+
+              <div class="account-card__number">
+                {{ account.accountNo }}
+              </div>
+            </div>
+
+            <div class="account-card__actions">
+              <button class="icon-btn" v-if="account.isKakaoPay">
+                <img
+                  src="@/image/icon/kakaopay.png"
+                  class="icon_kakao"
+                  @click="() => goLink(account.kakaoPayLink)"
+                />
+              </button>
+              <button class="icon-btn" @click="copy(account.accountNo)">
+                <img src="@/image/icon/copy.svg" class="icon" />
+              </button>
+            
+            </div>
           </div>
         </div>
-      </div>
-    </Accordion>
+      </Accordion>
+    </div>
   </div>
 
   <Toast :message="toastMessage" :duration="2000" />
@@ -169,6 +171,9 @@ const copy = (account) => {
 };
 </script>
 <style lang="scss" scoped>
+.money{
+  margin-top: 50px;
+}
 .text {
   line-height: 1.8;
 }

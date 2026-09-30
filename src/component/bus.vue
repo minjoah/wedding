@@ -19,13 +19,14 @@
         </div>
     </div>
         <Line/>
-    <BaseModal v-model="showModal" >
+    <BaseModal v-model="showModal">
         <div class="image-viewer">
             <img
-                src="@/image/busInfo.jpg"
+                src="/busInfo.jpg"
                 class="viewer-image"
                 draggable="false"
             />
+            <button class="bus-btn" @click="downloadIamge">이미지 다운로드</button>
         </div>
     </BaseModal>
 
@@ -47,6 +48,15 @@ import {
 const showModal =ref(false)
 const openPopup= ()=>{
 showModal.value = true
+}
+
+const downloadIamge = ()=>{
+const a = document.createElement('a');
+a.href = "/wedding/busInfo.jpg";
+  a.download = 'busInfo.jpg'; // 다운로드될 파일명 설정
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 }
 </script>
 <style lang="scss" scoped>
@@ -96,18 +106,39 @@ showModal.value = true
 }
 
 .viewer-image {
-  width: 100%;
-
+    width: calc(100vw - 32px);
+  max-width: 480px;
   height: auto;
-
   max-height: 100%;
-
   display: block;
-
   object-fit: contain;
-
   user-select: none;
-
   -webkit-user-drag: none;
 }
+
+.bus-btn {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1000;
+  padding: 5px 8px;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.image-viewer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom:20px
+}
+
 </style>

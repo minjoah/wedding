@@ -66,8 +66,8 @@
     <div class="contents backColor_3 margin">
       <directions />
     </div>
-    <div class="contents backColor_default margin"><bus/></div>
     <div class="contents margin backColor_default">
+      <bus/>
       <money />
     </div>
     <div class="contents">
