@@ -22,7 +22,7 @@
     <BaseModal v-model="showModal" size="full">
         <div class="image-viewer">
             <img
-                src="/busInfo.jpg"
+                src="/busInfo.png"
                 class="viewer-image"
                 draggable="false"
             />
@@ -52,8 +52,8 @@ showModal.value = true
 
 const downloadIamge = ()=>{
 const a = document.createElement('a');
-a.href = "/wedding/busInfo.jpg";
-  a.download = 'busInfo.jpg'; // 다운로드될 파일명 설정
+a.href = "/wedding/busInfo.png";
+  a.download = 'busInfo.png'; // 다운로드될 파일명 설정
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
@@ -106,7 +106,7 @@ a.href = "/wedding/busInfo.jpg";
 }
 
 .viewer-image {
-    width: calc(100vw - 32px);
+ width: calc(100vw - 32px);
   max-width: 480px;
   height: auto;
   max-height: 100%;
