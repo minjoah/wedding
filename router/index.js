@@ -6,24 +6,24 @@ import info from "@/info.vue";
 const routes = [
   {
     path: "/",
-    component: index,
+    component: wedding,
   },
   {
-    path: "/wedding",
-    component: wedding,
+    path: "/info",
+    component: info,
+  },
+  {
+    path: "/index",
+    component: index,
   },
   {
     path: "/wedding1",
     component: wedding1,
   },
-  {
-    path: "/wedding/info",
-    component: info,
-  },
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory("/wedding/"),
   routes,
 });
 
