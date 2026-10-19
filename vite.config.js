@@ -6,8 +6,8 @@ import vueDevTools from "vite-plugin-vue-devtools";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/wedding",
-  plugins: [vue(), vueDevTools()],
+  base: "/wedding/",
+  plugins: [vue(), vueDevTools(),githubPagesSpa(),],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
