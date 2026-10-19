@@ -23,7 +23,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory("/wedding/"),
+  history: createWebHistory(),
   routes,
 });
 
