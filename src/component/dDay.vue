@@ -75,7 +75,7 @@ onBeforeUnmount(() => {
   }
 });
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .container {
   padding-bottom: 120px;
 }
