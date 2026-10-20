@@ -103,7 +103,13 @@
             <div>
               <h3>버스 운행 정보</h3>
               <p>출발 시간과 탑승 장소를 확인해 주세요.</p>
+
+
             </div>
+          </div>
+          <div class="info-placeholder">
+            <b>1호차</b> : 과천 > 죽전 > 웨딩홀<br/>
+            <b>2호차</b> : 잠실 > 강남 > 웨딩홀
           </div>
           <button class="card-link" type="button" @click="openPopup()">
             <span>운행 정보 자세히 보기</span><span aria-hidden="true">↗</span>
@@ -140,7 +146,7 @@
               <p>탑승 관련 공지 및 문의</p>
             </div>
           </div>
-          <div class="info-placeholder">오픈채팅방 링크가 여기에 안내됩니다.</div>
+          <div class="info-placeholder"><a href="https://open.kakao.com/o/gAIT67Si">오픈채팅방 참여하기</a></div>
         </article>
       </div>
     </section>
