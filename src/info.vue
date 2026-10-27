@@ -108,8 +108,8 @@
             </div>
           </div>
           <div class="info-placeholder">
-            <b>1호차</b> : 과천 > 죽전 > 웨딩홀<br/>
-            <b>2호차</b> : 잠실 > 강남 > 웨딩홀
+            <b>1호차</b> : 과천 > 죽전 > 웨딩홀 ( 경기 72아 7575 )<br/>
+            <b>2호차</b> : 잠실 > 강남 > 웨딩홀 ( 경기 79사 2269 )
           </div>
           <button class="card-link" type="button" @click="openPopup()">
             <span>운행 정보 자세히 보기</span><span aria-hidden="true">↗</span>
@@ -124,7 +124,10 @@
               <p>탑승 전 필요한 물품을 확인해 주세요.</p>
             </div>
           </div>
-          <div class="info-placeholder">준비물 및 비품 목록이 여기에 안내됩니다.</div>
+          <div class="info-placeholder">
+            [비품목록]
+            티슈, 물티슈, 멀미약, 두통약, 도시락, 물, 비닐봉지
+          </div>
         </article>
 
         <article class="info-card">
@@ -135,7 +138,10 @@
               <p>당일 버스 이용 관련 문의</p>
             </div>
           </div>
-          <div class="info-placeholder">기사님 연락처가 여기에 안내됩니다.</div>
+          <div class="info-placeholder">
+            1호차 : 010-4599-7864 <br/>
+            2호차 : 010-3283-6353
+          </div>
         </article>
 
         <article class="info-card">
@@ -152,7 +158,7 @@
     </section>
 
     <!-- 기존 청첩장으로 이동하는 작은 하단 버튼 -->
-    <a href="/wedding" class="invitation-float">
+    <a href="/wedding/?isView=true" class="invitation-float">
       <span>모바일 청첩장</span>
       <span class="invitation-arrow" aria-hidden="true">↗</span>
     </a>

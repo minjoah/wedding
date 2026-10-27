@@ -85,7 +85,8 @@
   </div>
 </template>
 <script setup>
-import { onMounted, ref } from "vue";
+import { onBeforeMount, onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
 import calendar from "@/component/calendar.vue";
 import dDay from "@/component/dDay.vue";
 import gallery from "@/component/gallery.vue";
@@ -101,7 +102,7 @@ import welcome from "@/component/welcome.vue";
 import bgm from "@/component/bgm.vue";
 import bus from "@/component/bus.vue"
 import commingSoon from "@/component/commingSoon.vue";
-
+import router from "/router";
 
 const themes = {
   yellow: {
@@ -171,6 +172,12 @@ const changeTheme = (name) => {
 };
 
 const fontOpt = ref("normal");
+
+onBeforeMount(()=>{
+  if(!useRoute().query.isView)
+    router.push('/info')
+})
+
 onMounted(() => {
 
   changeTheme("yellow")
