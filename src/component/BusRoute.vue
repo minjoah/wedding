@@ -95,7 +95,7 @@ const BusInfo = [
     mapLinks:[
       {
         label: '과천 승차 위치 지도',
-        href: 'https://map.naver.com/v5/search/정부과천종합청사%20민원인%20주차장',
+        href: 'https://naver.me/551pkaqX',
       },
       {
         label: '죽전 승차 위치 지도',
@@ -121,7 +121,7 @@ const BusInfo = [
       {
         number: 2,
         name: '강남역',
-        address: '서울특별시 강남구 강남대로 382 메리츠타워',
+        address: '서울특별시 강남구 강남대로 382 메리츠타워입구',
         time: '08:50',
         datetime: '08:50',
       },
@@ -140,7 +140,7 @@ const BusInfo = [
       },
       {
         label: '강남역 승차 위치 지도',
-        href: 'https://naver.me/xLWnGtXY',
+        href: 'https://naver.me/FHOXIyF9',
       },
     ]
   }
