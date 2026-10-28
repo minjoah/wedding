@@ -99,7 +99,7 @@ const BusInfo = [
       },
       {
         label: '죽전 승차 위치 지도',
-        href: 'https://map.naver.com/v5/search/죽전%20버스정류장%20풍덕천동%20906',
+        href: 'https://naver.me/xfbCtcvj',
       },
     ]
   },
