@@ -103,8 +103,6 @@
             <div>
               <h3>버스 운행 정보</h3>
               <p>출발 시간과 탑승 장소를 확인해 주세요.</p>
-
-
             </div>
           </div>
           <div class="info-placeholder">
@@ -134,6 +132,15 @@
           <div class="info-card-heading">
             <span class="info-number">03</span>
             <div>
+              <h3>버스운행 상세정보</h3>
+            </div>
+          </div>
+          <BusRoute/>
+        </article>
+        <!-- <article class="info-card">
+          <div class="info-card-heading">
+            <span class="info-number">03</span>
+            <div>
               <h3>버스 기사님 연락처</h3>
               <p>당일 버스 이용 관련 문의</p>
             </div>
@@ -142,7 +149,7 @@
             1호차 : 010-4599-7864 <br/>
             2호차 : 010-3283-6353
           </div>
-        </article>
+        </article> -->
 
         <article class="info-card">
           <div class="info-card-heading">
@@ -178,6 +185,7 @@ import { ref } from 'vue';
 import BaseModal from '@/component/BaseModal.vue';
 import Title from '@/component/Title.vue';
 import dDay from '@/component/dDay.vue';
+import BusRoute from '@/component/BusRoute.vue';
 
 const showModal = ref(false);
 const copied = ref(false);
