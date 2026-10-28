@@ -22,6 +22,11 @@
           <span>버스 안내</span>
           <span class="nav-arrow" aria-hidden="true">↗</span>
         </button>
+        <button class="nav-card" type="button" @click="goDetail('money')">
+          <span class="nav-card-label">SHUTTLE BUS</span>
+          <span>계좌안내</span>
+          <span class="nav-arrow" aria-hidden="true">↗</span>
+        </button>
       </div>
 
       <p class="hero-caption">소중한 걸음에 도움이 될 안내를 준비했어요.</p>
@@ -101,6 +106,16 @@
           <div class="info-card-heading">
             <span class="info-number">01</span>
             <div>
+              <h3>버스 오픈채팅방</h3>
+              <p>탑승 관련 공지 및 문의</p>
+            </div>
+          </div>
+          <div class="info-placeholder"><a href="https://open.kakao.com/o/gAIT67Si">오픈채팅방 참여하기</a></div>
+        </article>
+        <article class="info-card">
+          <div class="info-card-heading">
+            <span class="info-number">02</span>
+            <div>
               <h3>버스 운행 정보</h3>
               <p>출발 시간과 탑승 장소를 확인해 주세요.</p>
             </div>
@@ -116,7 +131,7 @@
 
         <article class="info-card">
           <div class="info-card-heading">
-            <span class="info-number">02</span>
+            <span class="info-number">03</span>
             <div>
               <h3>준비물 및 비품 목록</h3>
               <p>탑승 전 필요한 물품을 확인해 주세요.</p>
@@ -130,7 +145,7 @@
 
         <article class="info-card">
           <div class="info-card-heading">
-            <span class="info-number">03</span>
+            <span class="info-number">04</span>
             <div>
               <h3>버스운행 상세정보</h3>
             </div>
@@ -151,18 +166,13 @@
           </div>
         </article> -->
 
-        <article class="info-card">
-          <div class="info-card-heading">
-            <span class="info-number">04</span>
-            <div>
-              <h3>버스 오픈채팅방</h3>
-              <p>탑승 관련 공지 및 문의</p>
-            </div>
-          </div>
-          <div class="info-placeholder"><a href="https://open.kakao.com/o/gAIT67Si">오픈채팅방 참여하기</a></div>
-        </article>
+
       </div>
     </section>
+
+     <section class="info_ content-section" id="info_money">
+       <money/>
+     </section>
 
     <!-- 기존 청첩장으로 이동하는 작은 하단 버튼 -->
     <a href="/wedding/?isView=true" class="invitation-float">
@@ -186,6 +196,7 @@ import BaseModal from '@/component/BaseModal.vue';
 import Title from '@/component/Title.vue';
 import dDay from '@/component/dDay.vue';
 import BusRoute from '@/component/BusRoute.vue';
+import money from "@/component/money.vue";
 
 const showModal = ref(false);
 const copied = ref(false);
@@ -194,6 +205,7 @@ const goDetail = (type) => {
   const targetId = {
     location: 'info_location',
     bus: 'info_bus',
+    money:'info_money'
   }[type];
 
   document.getElementById(targetId)?.scrollIntoView({
